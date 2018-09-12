@@ -1,5 +1,7 @@
-## Notes taken while reading D3.js in Action 2017 Manning 
+# Notes taken while reading D3.js in Action 2017 Manning 
 
+
+## Formating Data
 
 ### Scales
 
@@ -19,17 +21,38 @@ let newColorRamp = d3.scaleLinear().domain([500000,13000000]).range(["blue", "re
 newRamp(100000) // returns #ad0052  note invert does not work on color ranges. 
 ```
 
-## Binning
+### Binning
 - stores quantitative data in catagories
 - scale-Quantile(): 
     - splits array into equal sized parts 
     - sorts array of numbers in domain- splits values at appropriate point to create necessary categories .
     - note that this is not weighted like a gradient as with linear scaling - it simply arranging them into sets of equally sized bins
 ```javascript
-var sampleArray = [423,124,66,424,58,10,900,44,1]
-var qScale = d3.scaleQuantile().domain(simpleArray).range([0,1,2]) 
-var qScaleText = d3.scaleQuantile().domain(simpleArray).range([small, medium, big]) 
+let sampleArray = [423,124,66,424,58,10,900,44,1]
+let qScale = d3.scaleQuantile().domain(simpleArray).range([0,1,2]) 
+let qScaleText = d3.scaleQuantile().domain(simpleArray).range([small, medium, big]) 
 qScale(68) // 1, medium
 qScale(20) // 0, small
 qScale(10000) // 2, big
 ```
+
+### Nesting
+- d3.nest():
+    - shared attributes used to sort into discrete catagories. i.e list of books by author
+  
+```javascript
+d3.json("books.json", data => {
+    let bookData = data.books
+    let nestedBooks = d3.nest()
+        .key(book => book.author)
+        .entries(bookData)
+})
+
+// will output
+{
+    "Dan Nash": [book3, book6, book9]
+    "Sean Penn": [book4, book5, book8]
+}
+```
+
+## Measuring

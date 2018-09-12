@@ -55,4 +55,18 @@ d3.json("books.json", data => {
 }
 ```
 
-## Measuring
+## Measuring and Sorting Data
+
+    - determine the distribution of values in d3
+    - d3 measuring functions follow pattern of designating the array and an accessor function for the desire value to measure
+  
+  ```javascript
+  let testArray = [88,10000,1,75,12,35]
+  d3.min(testArray, el => el) 
+  d3.max(data, el => +el.population) // unary plus operator will force numerical casting of value
+  d3.mean()
+  d3.extent() // returns [min, max]
+  ```
+
+  ## Data-Binding
+  

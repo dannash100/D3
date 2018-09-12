@@ -31,3 +31,4 @@ d3.select("svg")
 
 d3.select("#a").transition().delay(1000).style("opacity", 1);
 d3.select("#b").transition().delay(3000).style("opacity", .75)
+d3.selectAll("circle").transition().duration(2000).attr("cy", 200)

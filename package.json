@@ -1,0 +1,11 @@
+{
+  "name": "D3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/dannash100/D3.git",
+  "author": "dannash100 <danster15@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "d3": "^5.7.0"
+  }
+}
